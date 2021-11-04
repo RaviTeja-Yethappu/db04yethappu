@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} Js
+  P Ravi Teja Yethappu is in process of running web pages dynamically on server side.
+  p Each cell adds the row and column and modifies by the number of rows in a table with a specific number of rows and columns.
+  p With Rows = #{query.rows} and Columns = #{query.cols} we except
+    -
+        rows= Number(query.rows)
+        col= Number(query.cols)
+    if !Number.isInteger(rows)
+        p below mentioned rows are not accurate. 
+    else if !Number.isInteger(col)
+        p below mentioned columns are not accurate.
+    else
+       table           
+            - for(let i=0; i<rows; i++) {
+               tr
+                 - for(let j=i; j<col-1; j++) {
+                    td=j
+                 -}        
+                 -   for(let k=0; k<=i; k++){
+                      td=k
+                 -}      
+            - }

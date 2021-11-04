@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the mall pug
+   div(class="container-fluid")
+        div(class="row")
+            -
+                let mall = [
+                    {
+                        "outlet": "Jack",
+                        "Quantity": 1,
+                        "price": 10
+                    },
+                    {
+                        "outlet": "jones",
+                        "Quantity": 2,
+                        "price": 20
+                    },
+                    {
+                        "outlet": "levis",
+                        "Quantity": 3,
+                        "price": 30
+                    },                   
+                ]
+            each v,index in mall       
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.outlet}
+                    br
+                    br
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.Quantity}
+                    br
+                    br
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased outlet ${intemNo + 1}`)
+        }
