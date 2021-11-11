@@ -30,10 +30,6 @@ exports.mall_detail = async function (req, res) {
 exports.mall_create_post = async function (req, res) {
     console.log(req.body)
     let document = new mall();
-    // We are looking for a body, since POST does not have query parameters.
-    // Even though bodies can be in many different formats, we will be picky
-    // and require tmall it be a json object
-    // {"mall_name":"beret mall", "colour":"white", "price":"Thirty-four USD"}
     document.mall_type = req.body.mall_type;
     document.price = req.body.price;
     document.quantity = req.body.quantity;
@@ -60,7 +56,7 @@ exports.mall_delete = async function (req, res) {
     }
     //res.send('NOT IMPLEMENTED: mall list');
 };
-//Handle bakery update form on PUT.
+
 exports.mall_update_put = async function (req, res) {
     console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`);
     try {
@@ -80,7 +76,7 @@ exports.mall_update_put = async function (req, res) {
         res.status(500);
         res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
     }
-    //res.send('NOT IMPLEMENTED: mall list');
+
 };
 
 // VIEWS
