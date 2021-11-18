@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://MongoDB:MongoDB@cluster0.8h0pc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 var indexRouter = require('./routes/index');
