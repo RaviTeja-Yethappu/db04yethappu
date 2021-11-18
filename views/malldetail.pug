@@ -1,0 +1,21 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let mallid = toshow._id 
+  - let mall_type = toshow.mall_type 
+  - let quantity = toshow.quantity 
+  - let price = toshow.price 
+  div 
+    div.row 
+      div(class='mallAttr mr-3') mall ID is: 
+      div #{mallid} 
+    div.row 
+      div(class='mallAttr mr-3') mall type is: 
+      div #{mall_type}    
+    div.row 
+      div(class='mallAttr mr-3') quantity is: 
+      div #{quantity} 
+    div.row 
+      div(class='mallAttr mr-3') price is: 
+      div #{price}    

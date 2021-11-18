@@ -84,6 +84,7 @@ exports.mall_update_put = async function (req, res) {
 exports.mall_view_all_Page = async function (req, res) {
     try {
         themall = await mall.find();
+        console.log(results);
         res.render('mall', { title: 'mall Search Results', results: themall });
     }
     catch (err) {
@@ -164,3 +165,16 @@ exports.mall_view_all_Page = async function (req, res) {
         res.status(500);
     }
 };
+
+exports.mall_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await mall.findById(req.query.id) 
+        res.render('malldelete', { title: 'Mall Delete', toShow: 
+        result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
