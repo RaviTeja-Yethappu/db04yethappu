@@ -1,15 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to the mall pug
+    div 
+     a(href="/mall/create") Create a mall 
+    h1= title
+    
+    p Welcome to #{title} web apps
+     
     - let items = results 
     div(class="container-fluid") 
          div(class="row m-1") 
           each item in results  
-           - let destination = `dispatch(\"/costumes/update?id=${item._id}\")` 
+           - let destination = `dispatch(\"/mall/update?id=${item._id}\")` 
            div(class="row-sm-2", class="m-1") Item #{item.mall_type}(#{item.quantity}) is #{item.price} 
             button.btn( class="btn-primary ml-1", onclick= destination) Update 
+           - let view = `dispatch(\"/mall/detail?id=${item._id}\")`    
+           div(class="row-sm-2", class="m-1")   
+            button.btn( class="btn-primary ml-1", onclick= view) View 
+           - let delete1 = `dispatch(\"/mall/delete?id=${item._id}\")`
+           div(class="row-sm-2", class="m-1")   
+            button.btn( class="btn-primary ml-1", onclick= delete1) delete 
    
     script. 
       function dispatch(path){ 
